@@ -1,5 +1,8 @@
 {
-    "name": "paper",
-    "version": "0.1.0",
-    "main": "main.js"
+  "name": "paper",
+  "version": "0.1.0",
+  "main": "main.js",
+  "dependencies": {
+    "node-fetch": "~1.3.0"
+  }
 }
