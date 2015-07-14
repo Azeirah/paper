@@ -3,6 +3,28 @@ var fetch = require('node-fetch');
 
 var element = document.createElement.bind(document);
 
+var Channels = React.createClass({displayName: 'Channels',
+    getInitialState: function () {
+        return {
+            channels: []
+        };
+    },
+    componentWillMount: function () {
+        fetch("http://localhost:8000/channels.php").then(
+            (result) => result.json().then(
+                (channels) => this.setState(channels, channels)));
+    },
+    render: function () {
+        var channels = this.state.channels.forEach(function (channel) {
+            return (React.createElement("div", null, channel.name));
+        });
+
+        return (
+            React.createElement("div", null, channels)
+        );
+    }
+});
+
 function Channels(container) {
     var source = Object.create(null);
 
@@ -32,7 +54,5 @@ JSON.prettify = function (json) {
 function loadChannels() {
     return fetch("http://localhost:8000/channels.php");
 }
-
-setBackground("/home/combomintopter/Pictures/1435358938356.jpg");
 
 Channels(document.body);

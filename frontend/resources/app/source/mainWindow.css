@@ -1,0 +1,62 @@
+body {
+    /* simple reset */
+    margin : 0;
+    padding: 0;
+}
+
+.navigation {
+    /* position the navigation as a bar on the top of the screen */
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+
+    /* the bar should be the width of the whole screen, always*/
+    width           : 100vw;
+
+    /* reset default box stuff */
+    margin          : 0;
+    padding         : 0;
+
+    /* we want a really thin, nearly invisible navigation bar*/
+    height          : 16px;
+
+    /* just for clarity during the development process*/
+    border-bottom   : 1px solid green;
+    background-color: white;
+}
+
+.main-window {
+    /* the main window should always take as much space as possible*/
+    width  : 100vw;
+    height : calc(100vh - 16px);
+
+    /* push main window down 16 px because of the fixed navigation */
+    margin : 16px 0 0 0;
+
+    /* reset default padding, this will be customized later*/
+    padding: 0;
+}
+
+/*
+for now, the wallpaper queue is disabled, it will be implemented in a later stage.
+the idea is to have the queue be a pull-up menu, it will appear whenever queue operations are done
+you can also just open it by clicking a small button on the bottom of the page
+*/
+.wallpaper-queue {
+    /* position the queue as a bar at the bottom of the screen*/
+    position        : fixed;
+    bottom          : 0;
+    left            : 0;
+
+    /* take up the whole screen's width*/
+    width           : 100vw;
+
+    /* no need for padding and margin, we need all the space we can get! */
+    margin          : 0;
+    padding         : 0;
+    height          : 90px;
+
+    /* just for clarity during the development process*/
+    background-color: white;
+    border-top      : 1px solid red;
+}

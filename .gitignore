@@ -1,2 +1,3 @@
 node_modules/
 backend/channels/
+.module_cache/

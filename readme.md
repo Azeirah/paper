@@ -19,7 +19,7 @@ To get started with Paper, run npm install in the `frontend/resources/app` folde
 Paper requires a running http php server, the simplest way to do this is by installing php and running the php server in the backend folder
 
 1. Install php `sudo apt-get install php5 php5-cli`
-2. Run the server `php -S localhost:8000`
+2. Run the server from the backend folder `cd backend && php -S localhost:8000`
 
 To run Paper's frontend, run `electron frontend/resources/app`.
 
