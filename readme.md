@@ -1,3 +1,5 @@
+# Paper is an extremely open project, [learn more](http://martijnbrekelmans.com/paper)
+
 # Paper
 
 Paper *will* at some point be a wallpaper manager. Right now, it's just a work-in-progress.
