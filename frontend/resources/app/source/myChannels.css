@@ -5,7 +5,7 @@
 
     /* display as thin-ish bar at the left of the screen */
     width     : 14vw;
-    height    : calc(100vh - 16px); /* subtract navigation-height from height */
+    height    : calc(100vh - 24px); /* subtract navigation-height from height */
 
     /* makes the channel-view scrollable, instead of the main-window */
     overflow-y: scroll;
@@ -18,7 +18,7 @@
 
     /* display as grid at the right of the screen */
     width     : calc(100vw - 14vw);
-    height    : calc(100vh - 16px); /* subtract navigation-height from height */
+    height    : calc(100vh - 24px); /* subtract navigation-height from height */
 
     /* makes the wallpaper-view scrollable, instead of the main-window */
     overflow-y: scroll;

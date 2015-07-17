@@ -5,6 +5,10 @@ body {
 }
 
 .navigation {
+    /* typography */
+    font-family     : Helvetica;
+    font-size       : 18px;
+
     /* position the navigation as a bar on the top of the screen */
     position        : fixed;
     top             : 0;
@@ -18,20 +22,47 @@ body {
     padding         : 0;
 
     /* we want a really thin, nearly invisible navigation bar*/
-    height          : 16px;
+    height          : 24px;
 
     /* just for clarity during the development process*/
     border-bottom   : 1px solid green;
     background-color: white;
 }
 
+.navigation-tab {
+    /* tab is a box kind of thingy */
+    height        : 26px;
+    margin        : 0;
+    padding       : 0;
+    border-right  : 1px solid #333;
+
+    /* center text in box */
+    line-height   : 24px;
+    text-align    : center;
+    vertical-align: middle;
+}
+
+.navigation-tab:hover {
+    position: relative;
+    top: 1px;
+}
+
+.navigation-tab:active {
+    position: relative;
+    top: 2px;
+}
+
+.navigation-tab.selected {
+    background-color: #bbb;
+}
+
 .main-window {
     /* the main window should always take as much space as possible*/
     width  : 100vw;
-    height : calc(100vh - 16px);
+    height : calc(100vh - 24px);
 
     /* push main window down 16 px because of the fixed navigation */
-    margin : 16px 0 0 0;
+    margin : 24px 0 0 0;
 
     /* reset default padding, this will be customized later*/
     padding: 0;

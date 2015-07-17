@@ -3,18 +3,15 @@
 var React = require('react');
 var setBackground = require('./build/background.js').setBackground;
 var fetch = require('node-fetch');
+var subscriptions = require('./build/subscriptions.js');
+
+var _require = require('./build/navigation.js');
+
+var Navigation = _require.Navigation;
 
 var element = document.createElement.bind(document);
 
 var rootUrl = 'http://localhost:8000/';
-
-function undef(value) {
-    return value === undefined ? 'is undefined' : 'is defined';
-}
-
-function prettyPrint(object) {
-    console.log(JSON.stringify(object, null, 4));
-}
 
 // ChannelContainer will request the data from the server
 // and will distribute it over the channel navigation
@@ -128,4 +125,7 @@ function loadChannelContainer() {
     return fetch('http://localhost:8000/channels.php');
 }
 
+var navigationLinks = ['My channels', 'browse channels'];
 React.render(React.createElement(ChannelView, null), document.querySelector('.main-window'));
+debugger;
+React.render(React.createElement(Navigation, { tabs: navigationLinks }), document.querySelector('.navigation'));
