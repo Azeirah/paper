@@ -26,5 +26,5 @@ let Navigation = React.createClass({
 });
 
 module.exports = {
-    Navigation: Navigation
+    Navigation,
 };

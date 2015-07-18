@@ -24,18 +24,11 @@
     overflow-y: scroll;
 }
 
-.channel {
-    /* making each channel a box */
-    width         : 12vw;
-    height        : 12vw;
-    border        : 1px solid #222;
-
-    /* center channel name */
-    text-align    : center;
-    vertical-align: middle;
-    line-height   : 12vw;
-}
-
 .channel.selected {
     background-color: orange;
+}
+
+.channel img {
+    margin : 0;
+    padding: 0;
 }
