@@ -1,8 +1,7 @@
-let React           = require('react');
-let {Router, route} = require('react-router');
-let config          = require('./config.js');
-let util            = require('./util.js');
-let fetch           = require('node-fetch');
+let React  = require('react');
+let config = require('./config.js');
+let util   = require('./util.js');
+let fetch  = require('node-fetch');
 
 // ChannelContainer will request the data from the server
 // and will distribute it over the channel navigation

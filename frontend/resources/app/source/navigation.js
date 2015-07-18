@@ -11,16 +11,14 @@ let NavigationTab = React.createClass({
 
 let Navigation = React.createClass({
     render: function () {
-        console.log(this.props.tabs);
         let tabs = this.props.tabs.map(function (tab) {
-            console.log(tab);
             return (
                 <NavigationTab name={tab}></NavigationTab>
             );
         });
 
         return (
-            <div>{tabs}</div>
+            <div className="navigation">{tabs}</div>
         );
     }
 });

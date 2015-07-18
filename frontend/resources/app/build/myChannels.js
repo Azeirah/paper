@@ -1,12 +1,6 @@
 'use strict';
 
 var React = require('react');
-
-var _require = require('react-router');
-
-var Router = _require.Router;
-var route = _require.route;
-
 var config = require('./config.js');
 var util = require('./util.js');
 var fetch = require('node-fetch');

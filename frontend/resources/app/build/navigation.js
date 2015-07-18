@@ -19,15 +19,13 @@ var Navigation = React.createClass({
     displayName: "Navigation",
 
     render: function render() {
-        console.log(this.props.tabs);
         var tabs = this.props.tabs.map(function (tab) {
-            console.log(tab);
             return React.createElement(NavigationTab, { name: tab });
         });
 
         return React.createElement(
             "div",
-            null,
+            { className: "navigation" },
             tabs
         );
     }
