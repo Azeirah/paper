@@ -1,7 +1,7 @@
-let React = require('react');
+import React from 'react';
 
 let NavigationTab = React.createClass({
-    render: function () {
+    render() {
         // take a prop called name
         return (
             <span className="navigation-tab">{this.props.name}</span>
@@ -10,12 +10,9 @@ let NavigationTab = React.createClass({
 });
 
 let Navigation = React.createClass({
-    render: function () {
-        let tabs = this.props.tabs.map(function (tab) {
-            return (
-                <NavigationTab name={tab}></NavigationTab>
-            );
-        });
+    render() {
+        let tabs = this.props.tabs.map((tab) =>
+            <NavigationTab name={tab}></NavigationTab>);
 
         return (
             <div className="navigation">{tabs}</div>

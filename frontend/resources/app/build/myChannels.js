@@ -1,56 +1,28 @@
 'use strict';
 
-var React = require('react');
-var config = require('./config.js');
-var util = require('./util.js');
-var fetch = require('node-fetch');
-
-// ChannelContainer will request the data from the server
-// and will distribute it over the channel navigation
-// and the wallpaper view
-var ChannelView = React.createClass({
-    displayName: 'ChannelView',
-
-    getInitialState: function getInitialState() {
-        return {
-            channels: [],
-            failure: false,
-            selectedChannel: ''
-        };
-    },
-    componentWillMount: function componentWillMount() {
-        var _this = this;
-
-        fetch(util.joinUrl(config.rootUrl, 'channels.php')).then(function (result) {
-            return result.json().then(function (channels) {
-                return _this.setState({ 'channels': channels });
-            });
-        })['catch'](function () {
-            return _this.setState({ 'failure': true });
-        });
-    },
-    selectChannel: function selectChannel(channelName) {
-        this.setState({ 'selectedChannel': channelName });
-    },
-    render: function render() {
-        var _this2 = this;
-
-        var currentChannel = this.state.channels.filter(function (channel) {
-            return channel.name === _this2.state.selectedChannel;
-        })[0];
-
-        var wallpapers = currentChannel ? currentChannel.papers : [];
-
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(ChannelContainer, { selectedChannel: this.state.selectedChannel, channelSelector: this.selectChannel, channels: this.state.channels }),
-            React.createElement(WallpaperContainer, { selectedChannel: this.state.selectedChannel, wallpapers: wallpapers })
-        );
-    }
+Object.defineProperty(exports, '__esModule', {
+    value: true
 });
 
-var ChannelContainer = React.createClass({
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _configJs = require('./config.js');
+
+var _configJs2 = _interopRequireDefault(_configJs);
+
+var _utilJs = require('./util.js');
+
+var _utilJs2 = _interopRequireDefault(_utilJs);
+
+var _nodeFetch = require('node-fetch');
+
+var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
+
+var ChannelContainer = _react2['default'].createClass({
     displayName: 'ChannelContainer',
 
     getInitialState: function getInitialState() {
@@ -59,13 +31,13 @@ var ChannelContainer = React.createClass({
         };
     },
     render: function render() {
-        var _this3 = this;
+        var _this = this;
 
         var channels = this.props.channels.map(function (channel) {
-            return React.createElement(Channel, { selectedChannel: _this3.props.selectedChannel, channelSelector: _this3.props.channelSelector, channel: channel });
+            return _react2['default'].createElement(Channel, { selectedChannel: _this.props.selectedChannel, channelSelector: _this.props.channelSelector, channel: channel });
         });
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             { className: 'channel-container' },
             channels
@@ -73,7 +45,7 @@ var ChannelContainer = React.createClass({
     }
 });
 
-var Channel = React.createClass({
+var Channel = _react2['default'].createClass({
     displayName: 'Channel',
 
     handleSelection: function handleSelection(e) {
@@ -84,7 +56,7 @@ var Channel = React.createClass({
         var className = 'channel ';
         className += isSelected ? 'selected' : '';
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             { className: className, onClick: this.handleSelection },
             this.props.channel.name
@@ -92,18 +64,18 @@ var Channel = React.createClass({
     }
 });
 
-var WallpaperContainer = React.createClass({
+var WallpaperContainer = _react2['default'].createClass({
     displayName: 'WallpaperContainer',
 
     render: function render() {
-        var _this4 = this;
+        var _this2 = this;
 
         var wallpapers = this.props.wallpapers.map(function (wallpaper) {
-            var source = [config.rootUrl, 'channels', _this4.props.selectedChannel, wallpaper].join('/');
-            return React.createElement('img', { width: '240', height: '180', src: source, alt: 'Failed to load wallpaper :(' });
+            var source = [_configJs2['default'].rootUrl, 'channels', _this2.props.selectedChannel, wallpaper].join('/');
+            return _react2['default'].createElement('img', { width: '240', height: '180', src: source, alt: 'Failed to load wallpaper :(' });
         });
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             { className: 'wallpaper-container' },
             wallpapers
@@ -111,6 +83,44 @@ var WallpaperContainer = React.createClass({
     }
 });
 
-module.exports = {
-    ChannelView: ChannelView
-};
+var ChannelView = _react2['default'].createClass({
+    displayName: 'ChannelView',
+
+    getInitialState: function getInitialState() {
+        return {
+            channels: [],
+            failure: false,
+            selectedChannel: ''
+        };
+    },
+    componentWillMount: function componentWillMount() {
+        var _this3 = this;
+
+        (0, _nodeFetch2['default'])(_utilJs2['default'].joinUrl(_configJs2['default'].rootUrl, 'channels.php')).then(function (result) {
+            return result.json().then(function (channels) {
+                return _this3.setState({ 'channels': channels });
+            });
+        })['catch'](function () {
+            return _this3.setState({ 'failure': true });
+        });
+    },
+    selectChannel: function selectChannel(channelName) {
+        this.setState({ 'selectedChannel': channelName });
+    },
+    render: function render() {
+        var _this4 = this;
+
+        var currentChannel = this.state.channels.filter(function (channel) {
+            return channel.name === _this4.state.selectedChannel;
+        })[0];
+        var wallpapers = currentChannel ? currentChannel.papers : [];
+
+        return _react2['default'].createElement(
+            'div',
+            null,
+            _react2['default'].createElement(ChannelContainer, { selectedChannel: this.state.selectedChannel, channelSelector: this.selectChannel, channels: this.state.channels }),
+            _react2['default'].createElement(WallpaperContainer, { selectedChannel: this.state.selectedChannel, wallpapers: wallpapers })
+        );
+    }
+});
+exports.ChannelView = ChannelView;

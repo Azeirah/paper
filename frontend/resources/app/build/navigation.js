@@ -1,13 +1,17 @@
 "use strict";
 
-var React = require("react");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var NavigationTab = React.createClass({
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var NavigationTab = _react2["default"].createClass({
     displayName: "NavigationTab",
 
     render: function render() {
         // take a prop called name
-        return React.createElement(
+        return _react2["default"].createElement(
             "span",
             { className: "navigation-tab" },
             this.props.name
@@ -15,15 +19,15 @@ var NavigationTab = React.createClass({
     }
 });
 
-var Navigation = React.createClass({
+var Navigation = _react2["default"].createClass({
     displayName: "Navigation",
 
     render: function render() {
         var tabs = this.props.tabs.map(function (tab) {
-            return React.createElement(NavigationTab, { name: tab });
+            return _react2["default"].createElement(NavigationTab, { name: tab });
         });
 
-        return React.createElement(
+        return _react2["default"].createElement(
             "div",
             { className: "navigation" },
             tabs
