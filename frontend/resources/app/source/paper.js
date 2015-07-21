@@ -5,28 +5,32 @@ let {ChannelView}   = require('./build/myChannels.js');
 let Router          = require('react-router');
 let RouteHandler    = Router.RouteHandler;
 let Route           = Router.Route;
+let DefaultRoute    = Router.DefaultRoute;
 // import { history } from 'react-router/lib/BrowserHistory';
-
-let navigationLinks = ["My channels", "browse channels"];
 
 let App = React.createClass({
     render () {
         return (
             <div>
-                <Navigation tabs={navigationLinks}/>
+                <Navigation/>
                 <RouteHandler/>
             </div>
         );
     }
 });
 
+let Thingy = React.createClass({
+    render () {
+        return (<div>BLABLABLA</div>);
+    }
+});
+
 let routes = (
     <Route handler={App}>
-        <Route path="/" handler={ChannelView}></Route>
+        <DefaultRoute handler={ChannelView}></DefaultRoute>
+        <Route path="My channels" handler={ChannelView}></Route>
+        <Route path="Browse channels" handler={Thingy}></Route>
     </Route>
 );
 
 Router.run(routes, Router.HashLocation, (Root) => {React.render(<Root/>, document.querySelector('.main-window'))});
-
-// React.render(<ChannelView></ChannelView>, document.querySelector(".main-window"));
-// React.render(<Navigation tabs={navigationLinks}></Navigation>, document.querySelector(".navigation"))

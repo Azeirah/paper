@@ -3,7 +3,6 @@ import config from './config.js';
 import util   from './util.js';
 import fetch  from 'node-fetch';
 
-
 let ChannelContainer = React.createClass({
     getInitialState() {
         return {

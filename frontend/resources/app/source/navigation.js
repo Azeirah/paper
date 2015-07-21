@@ -1,22 +1,13 @@
-import React from 'react';
-
-let NavigationTab = React.createClass({
-    render() {
-        // take a prop called name
-        return (
-            <span className="navigation-tab">{this.props.name}</span>
-        );
-    }
-});
+import React  from 'react';
+import {Link} from 'react-router';
 
 let Navigation = React.createClass({
     render() {
-        let tabs = this.props.tabs.map((tab) =>
-            <NavigationTab name={tab}></NavigationTab>);
-
         return (
-            <div className="navigation">{tabs}</div>
-        );
+            <nav className="navigation">
+                <Link to="/My channels">My channels</Link>
+                <Link to="/Browse channels">Browse</Link>
+            </nav>);
     }
 });
 
