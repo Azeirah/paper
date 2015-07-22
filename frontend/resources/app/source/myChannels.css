@@ -1,14 +1,19 @@
 .channel-container {
     /* allows to display the channel container alongside the wallpaper container */
-    display   : inline-block;
-    float     : left;
+    display    : inline-block;
+    float      : left;
 
     /* display as thin-ish bar at the left of the screen */
-    width     : 14vw;
-    height    : calc(100vh - 24px); /* subtract navigation-height from height */
+    width      : calc(14vw - (2 * 4px));
+    height     : calc(100vh - 24px); /* subtract navigation-height from height */
 
     /* makes the channel-view scrollable, instead of the main-window */
-    overflow-y: scroll;
+    overflow-y : scroll;
+
+    /* make the navigation look a little nicer */
+    padding    : 4px;
+    font-family: Arial;
+    color      : #444;
 }
 
 .wallpaper-container {
@@ -17,7 +22,7 @@
     float     : right;
 
     /* display as grid at the right of the screen */
-    width     : calc(100vw - 14vw);
+    width     : calc(100vw - 14vw); /* subtract navigation width from screen width */
     height    : calc(100vh - 24px); /* subtract navigation-height from height */
 
     /* makes the wallpaper-view scrollable, instead of the main-window */
@@ -25,10 +30,6 @@
 }
 
 .channel.selected {
-    background-color: orange;
-}
-
-.channel img {
-    margin : 0;
-    padding: 0;
+    color          : orangered;
+    text-decoration: underline;
 }

@@ -5,8 +5,8 @@ let Navigation = React.createClass({
     render() {
         return (
             <nav className="navigation">
-                <Link to="/My channels">My channels</Link>
-                <Link to="/Browse channels">Browse</Link>
+                <Link className="navigation-tab" to="/My channels">My channels</Link>
+                <Link className="navigation-tab" to="/Browse channels">Browse</Link>
             </nav>);
     }
 });

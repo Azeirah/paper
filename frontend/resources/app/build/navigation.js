@@ -17,12 +17,12 @@ var Navigation = _react2['default'].createClass({
             { className: 'navigation' },
             _react2['default'].createElement(
                 _reactRouter.Link,
-                { to: '/My channels' },
+                { className: 'navigation-tab', to: '/My channels' },
                 'My channels'
             ),
             _react2['default'].createElement(
                 _reactRouter.Link,
-                { to: '/Browse channels' },
+                { className: 'navigation-tab', to: '/Browse channels' },
                 'Browse'
             )
         );
