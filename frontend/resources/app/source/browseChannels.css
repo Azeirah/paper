@@ -1,0 +1,41 @@
+.channel-box {
+    /* making them look beautiful with shadows and stuff! */
+    border    : 1px solid #eee;
+    box-shadow: 0 0 2px #777;
+
+    /* fit an inner-box inside the container box */
+    width     : 120px;
+    height    : 120px;
+}
+
+.channel-box-container {
+    /* add spacing between each box */
+    margin    : 23px 4px 4px 4px;
+
+    /* center the title */
+    text-align: center;
+
+    /* make them display in a grid*/
+    display   : inline-block;
+
+    /* make the channel boxy */
+    width     : 120px;
+    height    : 120px;
+}
+
+.channel-box-container h4 {
+    margin: 4px 0;
+}
+
+.search-channels {
+    /* make it big! */
+    width   : 90vw;
+    height  : 40px;
+
+    /* Place it correctly on the screen, it should be on the top of the screen */
+    margin  : 12px 0;
+
+    /* Center it horizontally */
+    position: relative;
+    left    : calc((100vw - 90vw) / 2);
+}

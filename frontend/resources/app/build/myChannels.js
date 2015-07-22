@@ -71,7 +71,7 @@ var WallpaperContainer = _react2['default'].createClass({
         var _this2 = this;
 
         var wallpapers = this.props.wallpapers.map(function (wallpaper) {
-            var source = [_configJs2['default'].rootUrl, 'channels', _this2.props.selectedChannel, wallpaper].join('/');
+            var source = _utilJs2['default'].joinUrl(_configJs2['default'].rootUrl, 'channels', _this2.props.selectedChannel, wallpaper);
             return _react2['default'].createElement('img', { width: '240', height: '180', src: source, alt: 'Failed to load wallpaper :(' });
         });
 

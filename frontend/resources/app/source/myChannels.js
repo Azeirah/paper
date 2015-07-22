@@ -38,7 +38,7 @@ let Channel = React.createClass({
 let WallpaperContainer = React.createClass({
     render() {
         let wallpapers = this.props.wallpapers.map((wallpaper) => {
-            let source = [config.rootUrl, "channels", this.props.selectedChannel, wallpaper].join("/");
+            let source = util.joinUrl(config.rootUrl, "channels", this.props.selectedChannel, wallpaper);
             return (<img width="240" height="180" src={source} alt="Failed to load wallpaper :("></img>)
         });
 
